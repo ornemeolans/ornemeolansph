@@ -1,9 +1,11 @@
-/* VARIABLES DE COLOR - Basadas en tu paleta */
+/* VARIABLES DE COLOR - Nueva Paleta Aplicada */
 :root {
-  --primary-color: #D98E73; /* Terracota */
-  --secondary-color: #8C967A; /* Verde Seco */
-  --bg-light: #F2E8DF; /* Crema Fondo */
-  --text-dark: #4A4A4A;
+  --primary-color: #933B5B;   /* Prioridad 1: Ciruela/Vino (Acentos principales) */
+  --secondary-color: #B5728A; /* Prioridad 2: Rosa Viejo (Footer y títulos) */
+  --accent-color: #AABAAE;    /* Prioridad 3: Verde Grisáceo (Overlays y fondos suaves) */
+  --bg-light: #E3D6BF;        /* Prioridad 4: Arena/Beige (Fondo general) */
+  --text-dark: #333333;       /* Texto principal para legibilidad */
+  --text-muted: #9F9679;      /* Prioridad 5: Oliva Seco (Nav links y detalles) */
   --white: #ffffff;
 }
 
@@ -26,7 +28,7 @@ body {
 header {
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(217, 142, 115, 0.1);
+  border-bottom: 1px solid rgba(147, 59, 91, 0.1);
   transition: all 0.3s ease;
 }
 
@@ -42,7 +44,7 @@ header {
 .nav-link {
   font-size: 1.1rem !important;
   letter-spacing: 2px;
-  color: #5a5959 !important;
+  color: var(--text-muted) !important;
   position: relative;
   transition: color 0.3s;
 }
@@ -64,7 +66,7 @@ header {
 .section-title {
   font-size: 4rem;
   letter-spacing: 8px;
-  color: var(--secondary-color);
+  color: var(--primary-color);
   font-weight: 200;
   text-transform: uppercase;
 }
@@ -100,28 +102,28 @@ header {
   font-size: 2rem;
 }
 
-/* CORRECCIÓN DE CARRUSELES - IMÁGENES COMPLETAS */
+/* CORRECCIÓN DE CARRUSELES */
 .carousel {
   border-radius: 15px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-  background-color: #ebe4de; /* Fondo neutro para fotos verticales */
+  background-color: var(--accent-color); 
 }
 
 .carousel-item {
-  height: 80vh; /* Altura fija para mantener consistencia */
+  height: 80vh;
   background-color: transparent;
 }
 
 .carousel-item img {
   height: 100%;
   width: 100%;
-  object-fit: contain; /* ESTO EVITA EL RECORTE: la imagen se ajusta sin estirarse */
-  padding: 10px; /* Espacio estético opcional */
+  object-fit: contain;
+  padding: 10px;
 }
 
 .glass-caption {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(147, 59, 91, 0.2);
   backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -130,7 +132,7 @@ header {
   bottom: 40px;
 }
 
-/* GRID DE GALERÍA (INDEX) */
+/* GRID DE GALERÍA */
 .grid-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -154,7 +156,7 @@ header {
 .gallery-overlay {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(140, 150, 122, 0.85); /* Verde Musgo */
+  background: rgba(181, 114, 138, 0.85); 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -188,7 +190,7 @@ header {
 /* SECCIÓN CONTACTO */
 .aesthetic-input {
   background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(217, 142, 115, 0.2);
+  border: 1px solid rgba(147, 59, 91, 0.2);
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 20px;
@@ -197,7 +199,7 @@ header {
 
 .aesthetic-input:focus {
   border-color: var(--primary-color);
-  box-shadow: 0 0 10px rgba(217, 142, 115, 0.1);
+  box-shadow: 0 0 10px rgba(147, 59, 91, 0.1);
   outline: none;
 }
 
@@ -236,10 +238,6 @@ header {
   background: var(--white);
 }
 
-.info-card img {
-  width: 25px;
-}
-
 /* FOOTER */
 footer {
   background: var(--secondary-color);
@@ -256,10 +254,6 @@ footer {
   transition: opacity 0.3s;
 }
 
-.social-links img:hover {
-  opacity: 0.7;
-}
-
 /* RESPONSIVE */
 @media (max-width: 992px) {
   .section-title { font-size: 3rem; }
@@ -271,4 +265,4 @@ footer {
   .section-title { font-size: 2.2rem; letter-spacing: 4px; }
   .carousel-item { height: 50vh; }
   .hero-section { background-attachment: scroll; }
-} 
+}
