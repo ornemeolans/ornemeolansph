@@ -2,35 +2,59 @@
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Capturar los datos del formulario
     $name = htmlspecialchars($_POST['name']);
-    $surname = htmlspecialchars($_POST['surname']);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
     $message = htmlspecialchars($_POST['message']);
+    
+    // Capturar tipos de sesión seleccionados
+    $session_types = isset($_POST['session_type']) ? $_POST['session_type'] : array();
+    $session_types_str = implode(", ", $session_types);
 
     // Validar que todos los campos estén completos
-    if (!empty($name) && !empty($surname) && !empty($email) && !empty($message)) {
+    if (!empty($name) && !empty($email) && !empty($message)) {
         // Dirección de correo de destino
         $to = "ornemeolansph@gmail.com";
 
         // Asunto del correo
-        $subject = "Nuevo mensaje de contacto";
+        $subject = "Nuevo mensaje de contacto - Ornella Meolans Fotografía";
 
         // Contenido del correo
-        $body = "Nombre: $name\nApellido: $surname\nEmail: $email\n\nMensaje:\n$message";
+        $body = "Nuevo mensaje de contacto\n";
+        $body .= "=======================\n\n";
+        $body .= "Nombre: $name\n";
+        $body .= "Email: $email\n\n";
+        
+        if (!empty($session_types_str)) {
+            $body .= "Tipos de sesión interesados:\n";
+            $body .= "$session_types_str\n\n";
+        }
+        
+        $body .= "Mensaje:\n";
+        $body .= "$message\n";
 
         // Encabezados del correo
         $headers = "From: $email\r\n";
         $headers .= "Reply-To: $email\r\n";
+        $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
 
         // Intentar enviar el correo
         if (mail($to, $subject, $body, $headers)) {
-            echo "¡Mensaje enviado correctamente!";
+            // Redirigir a página de éxito
+            header("Location: ../pages/contacto.html?success=1");
+            exit();
         } else {
-            echo "Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.";
+            // Redirigir a página de error
+            header("Location: ../pages/contacto.html?error=1");
+            exit();
         }
     } else {
-        echo "Por favor, completa todos los campos.";
+        // Redirigir a página de error
+        header("Location: ../pages/contacto.html?error=1");
+        exit();
     }
 } else {
-    echo "Acceso no autorizado.";
+    // Acceso no autorizado
+    header("Location: ../index.html");
+    exit();
 }
 ?>
+
