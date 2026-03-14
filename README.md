@@ -27,6 +27,16 @@ Para el desarrollo de este portafolio utilicé un stack de tecnologías frontend
 - **Optimización SEO**: Implementación de meta-tags, descripciones y palabras clave para mejorar el posicionamiento en buscadores.
 - **Identidad Visual**: Integración de logotipos y paleta de colores coherente con la marca personal.
 
+## ⚙️ Instalación y Ejecución Local
+
+Para visualizar este proyecto en tu entorno local, sigue estos pasos:
+
+1. **Clonar el repositorio:**
+   ```bash
+   git clone [https://github.com/ornemeolans/ornemeolansph.git](https://github.com/ornemeolans/ornemeolansph.git)
+
+   
+
 ## 📂 Estructura de Carpetas
 ```text
 /
