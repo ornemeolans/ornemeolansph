@@ -33,7 +33,7 @@ Para visualizar este proyecto en tu entorno local, sigue estos pasos:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone [https://github.com/ornemeolans/ornemeolansph.git](https://github.com/ornemeolans/ornemeolansph.git)
+   git clone https://github.com/ornemeolans/ornemeolansph.git
 
    
 
