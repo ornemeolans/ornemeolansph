@@ -34,8 +34,16 @@ Para visualizar este proyecto en tu entorno local, sigue estos pasos:
 1. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/ornemeolans/ornemeolansph.git
+2. **Navegar al directorio:**
 
+   ```bash
+   cd ornemeolansph
    
+3. **Ejecucion:**
+
+   No requiere dependencias de Node.js. Puedes abrir el archivo index.html directamente en tu navegador.
+
+   Recomendado: Utiliza la extensión Live Server en VS Code para manejar correctamente las rutas relativas y las animaciones de AOS.
 
 ## 📂 Estructura de Carpetas
 ```text
